@@ -14,20 +14,30 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int scale = sc.nextInt();
 		
-		for (int i=0;i<icon.length;i++) { // loop for every line in the icon.
-			String line = icon[i]; // get one line.
-			for (int j=0;j<scale;j++) { // for this line I need to print scale lines.
-				// I need to print one scaled line.
-				for (int k=0;k<line.length();k++) { // for each character in the original line
-					char c = line.charAt(k); // get the kth character of current original line.
-					// I need to print the character scale times.
-					for (int l=0;l<scale;l++) { //loop scale times to print the current character.
-						System.out.print(c);
-					}
-				}
-				System.out.println();
+		// for each line in the icon I need to scalely print the line.
+		for (int i=0;i<icon.length;i++) {
+			scalelyPrintLine(icon[i], scale);
+		}
+	}
+
+	private static void scalelyPrintLine(String original, int scale) {
+		String scaledLine = getScaledLine(original,scale);
+		for (int i=0;i<scale;i++) {
+			System.out.println(scaledLine);
+		}
+		
+	}
+
+	private static String getScaledLine(String original, int scale) {
+		// TODO Auto-generated method stub
+		String rtString = "";
+		for (int i=0;i<original.length();i++) {
+			char c = original.charAt(i);
+			for (int j=0;j<scale;j++) {
+				rtString += c;
 			}
 		}
+		return rtString;
 	}
 
 }
